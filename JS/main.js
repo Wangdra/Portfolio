@@ -34,10 +34,6 @@ window.onscroll = () => {
   /*=============== sticky navbar ===================*/
   let header = document.querySelector("header");
   header.classList.toggle("sticky", window.scrollY > 100);
-
-  /*=============== remove toggle icon and navbar  ===================*/
-  menuIcon.classList.remove("fa-xmark");
-  navbar.classList.remove("active");
 };
 
 /*=============== scroll reveal ===================*/
@@ -45,15 +41,16 @@ ScrollReveal({
   distance: "80px",
   duration: 2000,
   delay: 200,
+  reset: false,
 });
 
 ScrollReveal().reveal(".home-content, heading", { origin: "top" });
-ScrollReveal().reveal(
-  ".home-img, .services-container, .portfolio-box, .contact form",
-  { origin: "button" }
-);
-ScrollReveal().reveal(".home-contact h1, .about-image", { origin: "left" });
-ScrollReveal().reveal(".home-contact p, .about-content", { origin: "right" });
+ScrollReveal().reveal(".home-img, .portfolio-box, .contact form", {
+  origin: "bottom",
+});
+ScrollReveal().reveal(".home-contact h1, .about-image, .about-content", {
+  origin: "left",
+});
 
 /*=============== typed js ===================*/
 const typed = new Typed(".multiple-text", {
